@@ -1,0 +1,38 @@
+inputSet:
+  pipeline:
+    identifier: Build_go_pipeline_sample_1700384977200
+    stages:
+      - stage:
+          identifier: Build
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Echo_Welcome_Message
+                    type: Run
+                    spec:
+                      connectorRef: dockerregistry
+                - step:
+                    identifier: build_app
+                    type: Run
+                    spec:
+                      connectorRef: dockerregistry
+                - step:
+                    identifier: build_and_push_image_to_dockerhub
+                    type: BuildAndPushDockerRegistry
+                    spec:
+                      connectorRef: dockerregistry
+                      repo: kashsura/demo
+    properties:
+      ci:
+        codebase:
+          build:
+            spec:
+              branch: main
+            type: branch
+    object Object: properties.ci.codebase
+  name: inputset-1
+  identifier: inputset1
+  orgIdentifier: default
+  projectIdentifier: Demo2
