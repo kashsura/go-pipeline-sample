@@ -18,12 +18,12 @@ pipeline:
                   identifier: Echo_Welcome_Message
                   spec:
                     shell: Sh
-                    command: echo "Welcome to Harness CI"
+                    command: echo "Welcome to Harness CI Demo"
           platform:
             os: Linux
             arch: Amd64
           runtime:
-            type: Cloud
+            type: Docker
             spec: {}
   properties:
     ci:
